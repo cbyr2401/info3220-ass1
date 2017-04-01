@@ -21,6 +21,14 @@ namespace si {
         // animate the defender
         int maxX = this->width()-defender.width();
         dx += ds;
+
+        std::cout << "defender: (" + std::to_string(dx) + ", "
+                     + std::to_string(dy) + ", "
+                     + std::to_string(ds) + ")";
+        std::cout << " | bullet: (" + std::to_string(bx) + ", "
+                     + std::to_string(by) + ", "
+                     + std::to_string(bs) + ")" << std::endl;
+
         if(dx >= maxX){
             dx = (2*maxX)-dx;
             ds *= -1;
@@ -36,5 +44,6 @@ namespace si {
             by -= bs;
         }
         update();
+        //Sleep(1000);
     }
 } // end namespace si

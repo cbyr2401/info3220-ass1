@@ -11,9 +11,6 @@ int main(int argc, char *argv[])
     BattleSphere w;
     w.show();
 
-//    for(int memes=0; memes < 1000; memes++){
-//        w.nextFrame();
-//    }
 
     return a.exec();
 }

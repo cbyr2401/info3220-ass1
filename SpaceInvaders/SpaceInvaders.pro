@@ -27,12 +27,17 @@ SOURCES += main.cpp\
         dialog.cpp \
     battlesphere.cpp \
     spaceship.cpp \
-    bullet.cpp
+    bullet.cpp \
+    game.cpp \
+    configuration.cpp
 
 HEADERS  += dialog.h \
     battlesphere.h \
     movingobject.h \
     spaceship.h \
-    bullet.h
+    bullet.h \
+    builder.h \
+    game.h \
+    configuration.h
 
 FORMS    += dialog.ui

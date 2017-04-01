@@ -3,6 +3,10 @@
 #include <QDialog>
 #include <QPainter>
 #include <QPixmap>
+#include <iostream>
+#include <conio.h>
+#include <windows.h>
+
 namespace si {
     class BattleSphere : public QDialog
     {
