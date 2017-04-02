@@ -1,8 +1,6 @@
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 
-
-
 #include <fstream>
 #include <QString>
 #include <iostream>
@@ -21,15 +19,12 @@ public:
     int startPosition();
     std::string shipSize();
 
-
-
 private:
     std::string m_moves[2000];
     int m_start_x;
     std::string m_shipsize;
     std::string m_path;
     int m_nextIndex = 0;
-    //void readFile(QString path);
 
 };
 

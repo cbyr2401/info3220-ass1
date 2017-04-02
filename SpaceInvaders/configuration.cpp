@@ -1,8 +1,6 @@
 #include "configuration.h"
 
 
-
-
 Configuration::Configuration(std::string path)
 {
     // create the file stream for reading the file.

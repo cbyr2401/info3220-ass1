@@ -18,7 +18,6 @@ public:
     ~Game() {}
     void addShip(Configuration config);
     void addBullet(int x);
-    void readConfig(std::string path);
     void updateBullets();
     void step(std::string instruction);
     void update(QPainter &painter);
@@ -26,14 +25,13 @@ public:
     Bullet getBullet() { return m_bullet; }
 
 private:
-    //SpaceShip* m_ships[5];
+    //SpaceShip* m_ships[5];  << for multiple ships
+    //Bullet* m_bullets[10];  << for multiple bullets
     SpaceShip m_ship;
-    int m_shipIndex = 0;
-    //Bullet* m_bullets[10];
+    int m_shipIndex = 0;    //<< for multiple ships
     Bullet m_bullet;
-    int m_bullIndex = 0;  // TODO: fix this...
+    int m_bullIndex = 0;    //<< for multiple bullets
     Configuration m_config;
-
 
 };
 

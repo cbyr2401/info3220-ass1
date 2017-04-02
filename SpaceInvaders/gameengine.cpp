@@ -43,9 +43,6 @@ void GameEngine::paintEvent(QPaintEvent *event) {
 
 }
 void GameEngine::nextFrame() {
-    // animate the defender
-    int maxX = this->width()-m_game.getSpaceShip().getPicture().width();
-
     // bullet check
     m_game.updateBullets();
 

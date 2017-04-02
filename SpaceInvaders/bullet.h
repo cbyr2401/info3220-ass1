@@ -12,14 +12,14 @@ class Bullet
 {
 public:
     class Builder;
-    ~Bullet() {}
+    ~Bullet();
     Bullet() {}
     void advance();
     void draw(QPainter &painter);
-    int getX() { return m_xcoord; }
-    int getY() { return m_ycoord; }
-    int getSpeed() { return m_speed; }
-    QPixmap getPicture() { return m_mapObj; }
+    int getX() { return m_xcoord; }             // getter
+    int getY() { return m_ycoord; }             // getter
+    int getSpeed() { return m_speed; }          // getter
+    QPixmap getPicture() { return m_mapObj; }   // getter
 
 private:
     Bullet(int x, int y, int s, QPixmap m, QMediaPlayer* p);
@@ -70,6 +70,8 @@ class Bullet::Builder {
             return *this;
         }
 
+        //  Run this function to finalise your object.
+        //  returns the object.
         Bullet build(){
             dmap.load(path);
             dplayer = new QMediaPlayer;

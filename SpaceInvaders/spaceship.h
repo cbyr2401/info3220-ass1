@@ -74,9 +74,10 @@ class SpaceShip::Builder {
             return *this;
         }
 
+        //  Run this function to finalise your object.
+        //  returns the object.
         SpaceShip build(){
-            // temporary fix
-            //dmap.load(path);
+            // hardcoded file names...
             dmap.load("images/defender.png");
             return SpaceShip(this->dx, this->dy, this->ds, this->dmap);
         }
