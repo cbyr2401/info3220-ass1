@@ -51,7 +51,7 @@ class SpaceShip::Builder {
     public:
         // default values for spaceship if not given any
         static const int defaultX = 250;
-        static const int defaultY = 250;
+        static const int defaultY = 350;
         static const int defaultS = 3;
 
         // default Builder
@@ -78,7 +78,8 @@ class SpaceShip::Builder {
         //  returns the object.
         SpaceShip build(){
             // hardcoded file names...
-            dmap.load("images/defender.png");
+            dmap.load("images/defender-" + dsize + ".png");
+
             return SpaceShip(this->dx, this->dy, this->ds, this->dmap);
         }
 };

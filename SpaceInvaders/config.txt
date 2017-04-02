@@ -1,4 +1,4 @@
-TINY
+tiny
 130
 LEFT
 RIGHT

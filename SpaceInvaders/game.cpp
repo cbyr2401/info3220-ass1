@@ -39,6 +39,7 @@ void Game::addShip(Configuration config){
             .setY(350)
             .setSpeed(3)
             .setImage(apath)
+            .setSize(QString::fromStdString(config.shipSize()))
             .build();
 }
 
