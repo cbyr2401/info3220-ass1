@@ -4,37 +4,34 @@
 #include <unistd.h>
 
 
-void Game::addBullet(int y){
+void Game::addBullet(int x){
     // TODO:  Add in the settings from config
 
     QString apath = "images/fireball.png";
-    Bullet bulBuilder = Bullet::Builder().setY(y).setImage(apath).build();
+    m_bullet = Bullet::Builder()
+            .setY(350)
+            .setX(x)
+            .setSpeed(10)
+            .setImage(apath)
+            .build();
 
-    // timer
-    //QTimer *timer = new QTimer(q);
-    //connect(timer, SIGNAL(timeout()), q, SLOT(bulBuilder.nextFrame()));
-    //timer->start(32);
-
-    //Bullet bill = bulBuilder.build();
+    m_bullIndex++;
 
     //m_bullets[m_bullIndex++] = &bulBuilder;
-    m_bullet = &bulBuilder;
 
 }
 
-void Game::addShip(){
+void Game::addShip(Configuration config){
     // TODO:  Add in the settings from config
 
     QString apath = "images/defender.png";
 
-    SpaceShip shipBuilder = SpaceShip::Builder()
-            .setX(0)
-            .setY(450)
+    m_ship = SpaceShip::Builder()
+            .setX(config.startPosition())
+            .setY(350)
             .setSpeed(3)
             .setImage(apath)
             .build();
-
-    m_ship = &shipBuilder;
 }
 
 void Game::readConfig(std::string path)
@@ -49,7 +46,7 @@ Game::Game(Configuration config)
 
 void Game::updateBullets() {
     //for(int i=0; i < m_bullIndex; i++) {
-        m_bullet->advance();
+        m_bullet.advance();
     //}
 }
 
@@ -59,28 +56,39 @@ void Game::step(std::string instruction){
 
     // change this is allowing for more than one spaceship
     //SpaceShip* ship = m_ships[0];
-    SpaceShip* ship = m_ship;
+
+    std::cout << instruction << std::endl;
 
     if(instruction == "RIGHT"){
-        ship->moveRight();
+        m_ship.moveRight();
     }else if(instruction == "LEFT"){
-        ship->moveLeft();
+        m_ship.moveLeft();
     }else if(instruction == "SHOT"){
-        addBullet(ship->getY());
+        int position = m_ship.getX() + (m_ship.getPicture().width()/2);
+        addBullet(position);
+        m_config.nextCommand();
+    }else{
+        std::cout << "No Command Found" << std::endl;
     }
 }
 
 
-void Game::update(QPainter *painter){
+void Game::update(QPainter &painter){
     // update / redraw the spaceship
     //m_ships[0]->draw(painter);
-    m_ship->draw(painter);
+    m_ship.draw(painter);
+
+    // WORKING
+    //painter.drawPixmap(m_ship.getX()
+    //                   ,m_ship.getY()
+    //                  , m_ship.getPicture());
+    // WORKING END
 
     // update / redraw the bullets
     //for(int i=0; i < m_bullIndex; i++) {
     //    m_bullets[i]->draw(painter);
     //}
-    if(m_bullet != nullptr) { m_bullet->draw(painter); }
+    if(m_bullIndex) { m_bullet.draw(painter); }
 
     // any more steps?
 }

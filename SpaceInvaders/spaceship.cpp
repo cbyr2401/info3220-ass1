@@ -25,8 +25,6 @@ void SpaceShip::moveRight(){
 
 void SpaceShip::setX(int x){ m_xcoord = x; }
 
-void SpaceShip::nextFrame() {}
-
-void SpaceShip::draw(QPainter *painter){
-    painter->drawPixmap(getX(), getY(), getPicture());
+void SpaceShip::draw(QPainter &painter){
+    painter.drawPixmap(getX(), getY(), getPicture());
 }

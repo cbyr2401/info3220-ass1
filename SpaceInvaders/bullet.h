@@ -4,6 +4,7 @@
 #include <QPainter>
 #include <QPixmap>
 #include <QString>
+#include <QMediaPlayer>
 
 #include <iostream>
 
@@ -13,28 +14,23 @@ class Bullet
 public:
     class Builder;
     ~Bullet() {}
+    Bullet() {}
     void advance();
-    void draw(QPainter *painter);
+    void draw(QPainter &painter);
 
     int getX() { return m_xcoord; }
     int getY() { return m_ycoord; }
     int getSpeed() { return m_speed; }
     QPixmap getPicture() { return m_mapObj; }
 
-protected:
-
-
 private:
-    Bullet(int x, int y, int s, QPixmap m);
+    Bullet(int x, int y, int s, QPixmap m, QMediaPlayer* p);
     void setY(int y);
     int m_xcoord;
     int m_ycoord;
     int m_speed;
     QPixmap m_mapObj;
-
-
-public slots:
-    virtual void nextFrame();
+    QMediaPlayer* m_player;
 
 };
 
@@ -46,6 +42,7 @@ class Bullet::Builder {
         int ds;
         QPixmap dmap;
         QString path;
+        QMediaPlayer* dplayer;
 
     public:
         // default values for spaceship if not given any
@@ -76,7 +73,11 @@ class Bullet::Builder {
 
         Bullet build(){
             dmap.load(path);
-            return Bullet(this->dx, this->dy, this->ds, this->dmap);
+            dplayer = new QMediaPlayer;
+            dplayer->setMedia(QUrl::fromLocalFile("shot.wav"));
+            dplayer->setVolume(100);
+
+            return Bullet(this->dx, this->dy, this->ds, this->dmap, this->dplayer);
         }
 };
 

@@ -16,32 +16,23 @@ public:
     ~SpaceShip();
     void moveLeft();
     void moveRight();
-    //void shoot();
-    void draw(QPainter *painter);
+    void draw(QPainter &painter);
+    SpaceShip() {}
 
     int getX() { return m_xcoord; }
     int getY() { return m_ycoord; }
     int getSpeed() { return m_speed; }
     QPixmap getPicture() { return m_mapObj; }
 
-
-protected:
-
-
 private:
+
     SpaceShip(int x, int y, int s, QPixmap m);
-        //: m_xcoord(x), m_ycoord(y), m_speed(s), m_mapObj(m){}
     QString size;
     void setX(int x);
-
     int m_xcoord;
     int m_ycoord;
     int m_speed;
     QPixmap m_mapObj;
-
-
-public slots:
-    virtual void nextFrame();
 
 };
 
@@ -59,8 +50,8 @@ class SpaceShip::Builder {
 
     public:
         // default values for spaceship if not given any
-        static const int defaultX = 0;
-        static const int defaultY = 350;
+        static const int defaultX = 250;
+        static const int defaultY = 250;
         static const int defaultS = 3;
 
         // default Builder

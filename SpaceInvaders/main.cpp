@@ -13,13 +13,7 @@ int main(int argc, char *argv[])
     //w.show();
 
     GameEngine w;
-
-    std::cout << "READY TO SHOW WINDOW" << std::endl;
-
     w.show();
-
-    std::cout << "POST SHOW WINDOW" << std::endl;
-
 
     return a.exec();
 }

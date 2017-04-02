@@ -17,6 +17,7 @@ public:
     Configuration(std::string path);
 
     std::string nextCommand();
+    std::string currentCommand();
     int startPosition();
     std::string shipSize();
 

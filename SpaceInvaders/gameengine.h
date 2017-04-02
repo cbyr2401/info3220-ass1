@@ -1,8 +1,9 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 
-#include "game.h"
+
 #include "configuration.h"
+#include "game.h"
 
 #include <QDialog>
 #include <QPainter>
@@ -10,7 +11,6 @@
 
 class GameEngine : public QDialog
 {
-
     Q_OBJECT
     Game m_game;
     Configuration m_config;
@@ -23,6 +23,7 @@ protected:
 
 public slots:
     void nextFrame();
+    void nextCMD();
 
 };
 
