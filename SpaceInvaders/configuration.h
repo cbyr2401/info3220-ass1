@@ -12,7 +12,7 @@
 class Configuration
 {
 public:
-    Configuration() {};
+    Configuration() {}
     ~Configuration() {}
     Configuration(std::string path);
 

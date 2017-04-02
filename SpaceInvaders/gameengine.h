@@ -10,8 +10,9 @@
 
 class GameEngine : public QDialog
 {
-public:
+
     Q_OBJECT
+public:
     GameEngine(QWidget *parent = nullptr);
     void play();
 

@@ -1,6 +1,10 @@
 #include "bullet.h"
 
 
+
+Bullet::Bullet(int x, int y, int speed, QPixmap map)
+    :m_xcoord(x), m_ycoord(y), m_speed(speed), m_mapObj(map) {}
+
 void Bullet::advance(){
     int value = -1 * getSpeed() + getY();
     setY(value);

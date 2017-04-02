@@ -6,8 +6,8 @@
 //SpaceShip::SpaceShip(int x, int y, int s, QPixmap m) : m_xcoord(x), m_ycoord(y), m_speed(s), m_mapObj(m)
 //{}
 
-SpaceShip::SpaceShip(int x, int y, int s, QPixmap m)
-    : MovingObject(x,y,s,m) {}
+SpaceShip::SpaceShip(int x, int y, int speed, QPixmap map)
+    :m_xcoord(x), m_ycoord(y), m_speed(speed), m_mapObj(map) {}
 
 SpaceShip::~SpaceShip() {}
 

@@ -1,6 +1,7 @@
 #include "game.h"
 
 #include <QTimer>
+#include <unistd.h>
 
 
 void Game::addBullet(int y){
@@ -28,7 +29,7 @@ void Game::addShip(){
     SpaceShip shipBuilder = SpaceShip::Builder()
             .setX(0)
             .setY(450)
-            .setSpeed(10)
+            .setSpeed(3)
             .setImage(apath)
             .build();
 
@@ -66,7 +67,6 @@ void Game::step(std::string instruction){
     }else if(instruction == "SHOT"){
         addBullet(ship->getY());
     }
-
 }
 
 

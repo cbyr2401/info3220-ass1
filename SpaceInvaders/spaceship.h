@@ -2,10 +2,14 @@
 #define SPACESHIP_H
 
 
-#include "movingobject.h"
+#include <QPainter>
+#include <QPixmap>
+#include <QString>
+
+#include <iostream>
 
 
-class SpaceShip : public MovingObject
+class SpaceShip
 {
 public:
     class Builder;
@@ -14,6 +18,11 @@ public:
     void moveRight();
     //void shoot();
     void draw(QPainter *painter);
+
+    int getX() { return m_xcoord; }
+    int getY() { return m_ycoord; }
+    int getSpeed() { return m_speed; }
+    QPixmap getPicture() { return m_mapObj; }
 
 
 protected:
@@ -24,6 +33,11 @@ private:
         //: m_xcoord(x), m_ycoord(y), m_speed(s), m_mapObj(m){}
     QString size;
     void setX(int x);
+
+    int m_xcoord;
+    int m_ycoord;
+    int m_speed;
+    QPixmap m_mapObj;
 
 
 public slots:
@@ -70,7 +84,9 @@ class SpaceShip::Builder {
         }
 
         SpaceShip build(){
-            dmap.load(path);
+            // temporary fix
+            //dmap.load(path);
+            dmap.load("images/defender.png");
             return SpaceShip(this->dx, this->dy, this->ds, this->dmap);
         }
 };

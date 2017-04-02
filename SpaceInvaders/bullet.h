@@ -1,11 +1,14 @@
 #ifndef BULLET_H
 #define BULLET_H
 
-#include "movingobject.h"
+#include <QPainter>
+#include <QPixmap>
+#include <QString>
+
+#include <iostream>
 
 
-
-class Bullet : protected MovingObject
+class Bullet
 {
 public:
     class Builder;
@@ -13,13 +16,21 @@ public:
     void advance();
     void draw(QPainter *painter);
 
+    int getX() { return m_xcoord; }
+    int getY() { return m_ycoord; }
+    int getSpeed() { return m_speed; }
+    QPixmap getPicture() { return m_mapObj; }
+
 protected:
 
 
 private:
-    Bullet(int x, int y, int s, QPixmap m)
-          : MovingObject(x,y,s,m) {}
+    Bullet(int x, int y, int s, QPixmap m);
     void setY(int y);
+    int m_xcoord;
+    int m_ycoord;
+    int m_speed;
+    QPixmap m_mapObj;
 
 
 public slots:

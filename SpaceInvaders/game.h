@@ -22,6 +22,8 @@ public:
     void updateBullets();
     void step(std::string instruction);
     void update(QPainter *painter);
+    SpaceShip* getSpaceShip() { return m_ships[0]; }
+    Bullet* getBullet() { return m_bullets[0]; }
 
 private:
     SpaceShip* m_ships[5];
