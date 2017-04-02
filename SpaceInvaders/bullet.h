@@ -8,7 +8,6 @@
 
 #include <iostream>
 
-
 class Bullet
 {
 public:
@@ -17,7 +16,6 @@ public:
     Bullet() {}
     void advance();
     void draw(QPainter &painter);
-
     int getX() { return m_xcoord; }
     int getY() { return m_ycoord; }
     int getSpeed() { return m_speed; }
@@ -31,6 +29,7 @@ private:
     int m_speed;
     QPixmap m_mapObj;
     QMediaPlayer* m_player;
+
 
 };
 

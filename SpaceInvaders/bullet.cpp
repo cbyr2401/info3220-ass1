@@ -1,5 +1,5 @@
 #include "bullet.h"
-
+#include <QTimer>
 
 
 Bullet::Bullet(int x, int y, int speed, QPixmap map, QMediaPlayer* p)
@@ -8,10 +8,7 @@ Bullet::Bullet(int x, int y, int speed, QPixmap map, QMediaPlayer* p)
 {
     m_player->play();
 
-    // set up the timer
-    //QTimer *timer = new QTimer(this);
-    //connect(timer, SIGNAL(timeout()), this, SLOT(nextFrame()));
-    //timer->start(32);
+
 }
 
 void Bullet::advance(){
@@ -29,7 +26,3 @@ void Bullet::setY(int y) { m_ycoord = y; }
 void Bullet::draw(QPainter &painter){
     painter.drawPixmap(getX(), getY(), getPicture());
 }
-
-//void Bullet::nextFrame(){
-//    advance();
-//}

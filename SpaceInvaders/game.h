@@ -17,7 +17,7 @@ public:
     Game() {}
     ~Game() {}
     void addShip(Configuration config);
-    void addBullet(int y);
+    void addBullet(int x);
     void readConfig(std::string path);
     void updateBullets();
     void step(std::string instruction);

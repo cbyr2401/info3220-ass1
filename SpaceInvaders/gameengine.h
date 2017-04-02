@@ -16,7 +16,6 @@ class GameEngine : public QDialog
     Configuration m_config;
 public:
     GameEngine(QWidget *parent = nullptr);
-    void play();
 
 protected:
     void paintEvent(QPaintEvent *event);
