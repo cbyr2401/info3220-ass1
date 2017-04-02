@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     spaceship.cpp \
     bullet.cpp \
     game.cpp \
-    configuration.cpp
+    configuration.cpp \
+    gameengine.cpp
 
 HEADERS  += dialog.h \
     battlesphere.h \
@@ -38,6 +39,7 @@ HEADERS  += dialog.h \
     bullet.h \
     builder.h \
     game.h \
-    configuration.h
+    configuration.h \
+    gameengine.h
 
 FORMS    += dialog.ui

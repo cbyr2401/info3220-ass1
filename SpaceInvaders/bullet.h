@@ -11,6 +11,7 @@ public:
     class Builder;
     ~Bullet() {}
     void advance();
+    void draw(QPainter *painter);
 
 protected:
 
@@ -22,7 +23,7 @@ private:
 
 
 public slots:
-    void nextFrame();
+    virtual void nextFrame();
 
 };
 

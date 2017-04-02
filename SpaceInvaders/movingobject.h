@@ -17,11 +17,11 @@ public:
         :m_xcoord(x), m_ycoord(y), m_speed(speed), m_mapObj(map) {}
 
     ~MovingObject() {}
-    class Builder;
-    int getX() { return m_xcoord; }
-    int getY() { return m_ycoord; }
-    int getSpeed() { return m_speed; }
-    QPixmap getPicture() { return m_mapObj; }
+
+    virtual int getX() { return m_xcoord; }
+    virtual int getY() { return m_ycoord; }
+    virtual int getSpeed() { return m_speed; }
+    virtual QPixmap getPicture() { return m_mapObj; }
 
 protected:
     int m_xcoord;

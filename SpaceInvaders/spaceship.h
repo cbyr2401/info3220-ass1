@@ -5,23 +5,22 @@
 #include "movingobject.h"
 
 
-class SpaceShip : protected MovingObject
+class SpaceShip : public MovingObject
 {
 public:
     class Builder;
-    ~SpaceShip() {}
+    ~SpaceShip();
     void moveLeft();
     void moveRight();
     //void shoot();
-    //void draw();
+    void draw(QPainter *painter);
 
 
 protected:
 
 
 private:
-    SpaceShip(int x, int y, int s, QPixmap m)
-        : MovingObject(x,y,s,m) {}
+    SpaceShip(int x, int y, int s, QPixmap m);
         //: m_xcoord(x), m_ycoord(y), m_speed(s), m_mapObj(m){}
     QString size;
     void setX(int x);

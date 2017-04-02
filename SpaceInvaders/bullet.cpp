@@ -19,4 +19,6 @@ void Bullet::nextFrame(){
     //update();
 }
 
-
+void Bullet::draw(QPainter *painter){
+    painter->drawPixmap(getX(), getY(), getPicture());
+}
