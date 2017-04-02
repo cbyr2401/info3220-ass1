@@ -34,8 +34,6 @@ void GameEngine::play(){
 }
 
 void GameEngine::paintEvent(QPaintEvent *event) {
-
-
     // declare a new QPainter
     QPainter painter(this);
 
@@ -44,14 +42,34 @@ void GameEngine::paintEvent(QPaintEvent *event) {
 
 }
 void GameEngine::nextFrame() {
+    // animate the defender
+    int maxX = this->width()-m_game.getSpaceShip()->getPicture().width();
+    //dx += ds;
+/*
+    if( m_game.getSpaceShip()->getX() >= maxX){
+        m_game.getSpaceShip()->moveLeft();
+    } else if (m_game.getSpaceShip()->getX() <= 0) {
+        m_game.getSpaceShip()->moveRight();
+    }
+    */
+    // shoot or animate the bullet
+    /*if(by <= -100){
+        bx = dx + (defender.width()/2) - (bullet.width()/2);
+        by = dy - bullet.height();
+    } else {
+        by -= bs;
+    }*/
+    update();
 
-    // bullet check
+
+
+    /*// bullet check
     m_game.updateBullets();
 
     // process next move
-    m_game.step(m_config.nextCommand());
+    m_game.step(m_config.nextCommand()); */
 
     // update
-    update();
+    //update();
 
 }

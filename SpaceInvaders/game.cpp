@@ -17,7 +17,8 @@ void Game::addBullet(int y){
 
     //Bullet bill = bulBuilder.build();
 
-    m_bullets[m_bullIndex++] = &bulBuilder;
+    //m_bullets[m_bullIndex++] = &bulBuilder;
+    m_bullet = &bulBuilder;
 
 }
 
@@ -33,7 +34,7 @@ void Game::addShip(){
             .setImage(apath)
             .build();
 
-    m_ships[m_shipIndex] = &shipBuilder;
+    m_ship = &shipBuilder;
 }
 
 void Game::readConfig(std::string path)
@@ -47,9 +48,9 @@ Game::Game(Configuration config)
 
 
 void Game::updateBullets() {
-    for(int i=0; i < m_bullIndex; i++) {
-        m_bullets[i]->advance();
-    }
+    //for(int i=0; i < m_bullIndex; i++) {
+        m_bullet->advance();
+    //}
 }
 
 
@@ -57,8 +58,8 @@ void Game::step(std::string instruction){
 
 
     // change this is allowing for more than one spaceship
-    SpaceShip* ship = m_ships[0];
-
+    //SpaceShip* ship = m_ships[0];
+    SpaceShip* ship = m_ship;
 
     if(instruction == "RIGHT"){
         ship->moveRight();
@@ -72,12 +73,14 @@ void Game::step(std::string instruction){
 
 void Game::update(QPainter *painter){
     // update / redraw the spaceship
-    m_ships[0]->draw(painter);
+    //m_ships[0]->draw(painter);
+    m_ship->draw(painter);
 
     // update / redraw the bullets
-    for(int i=0; i < m_bullIndex; i++) {
-        m_bullets[i]->draw(painter);
-    }
+    //for(int i=0; i < m_bullIndex; i++) {
+    //    m_bullets[i]->draw(painter);
+    //}
+    if(m_bullet != nullptr) { m_bullet->draw(painter); }
 
     // any more steps?
 }

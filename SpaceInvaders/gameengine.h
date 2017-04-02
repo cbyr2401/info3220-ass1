@@ -12,17 +12,14 @@ class GameEngine : public QDialog
 {
 
     Q_OBJECT
+    Game m_game;
+    Configuration m_config;
 public:
     GameEngine(QWidget *parent = nullptr);
     void play();
 
-private:
-    Game m_game;
-    Configuration m_config;
-
 protected:
     void paintEvent(QPaintEvent *event);
-
 
 public slots:
     void nextFrame();
